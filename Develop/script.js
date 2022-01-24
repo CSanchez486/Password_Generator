@@ -67,13 +67,30 @@ var randomLCL;
 var randomSC;
 var randomNS;
 
+//random variable wo;; get pushed up to the array
 if(randomUCL) { 
   uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
   randomC.push(randomUCL);
-  //randomUCL gets pushed up to the array
   password.push(...uppercaseLetters);
 }
- 
+
+if(randomLCL) {
+  lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+  randomC.push(randomLCL);
+  password.push(...lowercaseLetters);
+}
+
+if(randomSC) {
+  specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+  randomC.push(randomSC);
+  password.push(...randomSC);
+}
+
+if(randomNS) {
+  numericSigns[Math.floor(Math.random() * numericSigns.length)];
+  randomC.push(randomNS);
+  password.push(...numericSigns);
+}
 
 //   return String.charAt (Math.floor(Math.random() * specialCharacters.length);
 // 
