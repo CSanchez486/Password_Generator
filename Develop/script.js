@@ -185,8 +185,8 @@ if (uppercaseNeeded && numericNeeded && specialNeeded){ // password generated wi
 var password
 // Write password to the #password input
 function writePassword() {
-let password = generatePassword();
-let passwordText = document.querySelector("#password");
+var password = generatePassword();
+var passwordText = document.querySelector("#password");
 passwordText.value = password;
 }
 
