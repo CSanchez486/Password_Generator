@@ -9,6 +9,20 @@ var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N",
 var numericSigns = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharacters = [ "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","^","_","`","{","|","}","~"];
 
+// Variables for checkP function
+var hasSC;
+var hasNS;
+var hasUCL;
+var hasLCL;
+
+//Checks that password has correct character types 
+function checkP () {
+  hasSC = window.confirm("Cancel means No, OK means OK - click away!");
+  hasNS = window.confirm("Cancel means No, OK means OK - click away!");
+  hasUCL = window.confirm("Cancel means No, OK means OK - click away!");
+  hasLCL = window.confirm("Cancel means No, OK means OK - click away!");
+}
+
 
 // This function will determine the password length.
 // initial prompt
@@ -37,7 +51,7 @@ function keyLength () {
 
     //checks that response works for numbers chosen 
   } else {
-    verifyP();
+    checkP();
   };
   // console.log(keyLength)
 
