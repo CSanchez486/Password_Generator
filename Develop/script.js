@@ -9,37 +9,37 @@ var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N",
 var numericSigns = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharacters = [ "!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","^","_","`","{","|","}","~"];
 
-var passwordLength;
-
-
 
 // This function will determine the password length.
-//intial prompt
+// initial prompt
 function keyLength () { 
-  passwordLength = prompt("How many characters does your password need to be? The length of the password can be between 8-128 characters");
+  var passwordLength = prompt("How many characters does your password need to be? The length of the password can be between 8-128 characters");
 
-  //prompt if less than 8 characters
-  if (passwordLength<8){  
+  //prompt if cancel is clicked - exits the generator
+  if (passwordLength === null)  { 
     alert("You need at least 8 characters to have a secure password. Let's try this again...");
     return;
   
-    //prompt if greater than 128 
-  }else if (passwordLength>128){ 
-    alert ("Do you really need a password past 129 characters? Reel it back down to 128" );
+    //prompt if nothing is entered
+  }else if (!passwordLength){ 
+    alert ("Forget to enter a number? Need to know that before I can generate a password." );
     return;
     
-    //prompt if anything entered is not a number
-  }else if (isNaN(passwordLength)){ 
-    alert ("Forget to enter a number? Need to know that before I can generate a password.");
+    //prompt if anything 
+  }else if (passwordLength < 8 || passwordLength > 128) { 
+    alert ("Let's try this again - pick a number between 8 & 128, I believe in you");
     return;
 
     //supporting prompts for the next series of questions
-  }else{ 
-    alert("Please answer the following questions so a secure password can be generated for you.");
-  }
-  return passwordLength;
+  }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters || specialCharacters) 
+    alert("You need to enter a number...");
+    return;
+
+    //checks that response works for numbers chosen 
+  } else {
+    verifyP();
+  };
   // console.log(keyLength)
-}
 
 // This function will confirm if uppercase letters are needed
 //initial prompt 
