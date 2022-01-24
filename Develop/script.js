@@ -1,11 +1,16 @@
-// prompt for password; needs x - length - between 8-128, include x - lowercase , x- uppercase, x - numeric, and/or x - special characters. 
 // Assignment Code
-var passwordLength;
-var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+var generateBtn = document.querySelector("#generate");
+
+// prompt for password; needs x - length - between 8-128, include x - lowercase , x- uppercase, x - numeric, and/or x - special characters. 
+
+
+var lowercaseLetters = ["a", "b","c", "d", "e", "f", "g", "h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numericSigns = "0123456789";
 var specialCharacters = " !#$%&'()*+,-./:;<=>?@^_`{|}~";
-var generateBtn = document.querySelector("#generate");
+
+var passwordLength;
+
 
 
 // This function will determine the password length.
@@ -13,34 +18,36 @@ var generateBtn = document.querySelector("#generate");
 function keyLength () { 
   passwordLength = prompt("How many characters does your password need to be? The length of the password can be between 8-128 characters");
 
-  //prompt if less than 8
+  //prompt if less than 8 characters
   if (passwordLength<8){  
     alert("You need at least 8 characters to have a secure password. Let's try this again...");
-    keyLength();
+    return;
   
     //prompt if greater than 128 
   }else if (passwordLength>128){ 
     alert ("Do you really need a password past 129 characters? Reel it back down to 128" );
-    keyLength();
+    return;
     
     //prompt if anything entered is not a number
   }else if (isNaN(passwordLength)){ 
     alert ("Forget to enter a number? Need to know that before I can generate a password.");
-    keyLength ();
+    return;
 
     //supporting prompts for the next series of questions
   }else{ 
     alert("Please answer the following questions so a secure password can be generated for you.");
   }
   return passwordLength;
+  // console.log(keyLength)
 }
 
 // This function will confirm if uppercase letters are needed
 //initial prompt 
 function uppercaseNeeded() { 
   uppercaseConfirm = prompt("Are uppercase letters required for your password?\n (Y / N)");
+
   // prompt if text field is blank  
-  if (uppercaseConfirm === null || uppercaseConfirm === ""){ 
+  if (uppercaseConfirm === null || uppercaseConfirm === "") { 
       alert("Choose Y or N"); 
       uppercaseNeeded;
 
@@ -52,7 +59,7 @@ function uppercaseNeeded() {
         // allows for variations of N to be accepted as a response
     }else if (uppercaseConfirm === "N" || uppercaseConfirm === "n"){ 
         uppercaseConfirm = false;
-
+        return lowercaseConfirm
         //determines if uppercase letters are needed
     }else {
         alert("Y or N");
@@ -65,6 +72,7 @@ function uppercaseNeeded() {
 // initial prompt
 function numericNeeded () { 
   numericConfirm = prompt("Are numbers required for your password?\n (Y / N)");
+
    //prompt if text field is blank  
   if (numericConfirm === null || numericConfirm === " " ) { 
       alert("Choose Y or N");
@@ -114,13 +122,13 @@ function specialNeeded () {
 
 function generatePassword() {
   keyLength;
-  console.log(passwordLength);
+  // console.log(passwordLength);
   uppercaseNeeded;
-  console.log(uppercaseConfirm);
+  // console.log(uppercaseConfirm);
   numericNeeded;
-  console.log(numericConfirm);
+  // console.log(numericConfirm);
   specialNeeded;
-  console.log(specialConfirm)
+  // console.log(specialConfirm)
   }
 
   // Password formula
@@ -163,11 +171,12 @@ if (uppercaseNeeded && numericNeeded && specialNeeded){ // password generated wi
 var password
 // Write password to the #password input
 function writePassword() {
-  password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password1;
+let password = generatePassword();
+let passwordText = document.querySelector("#password");
+passwordText.value = password;
 }
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 //  console.log(writePassword);
+
