@@ -51,9 +51,8 @@ function generatePassword() {
     return;
 
     //checks that response works for numbers chosen 
-  } else {
+  } 
     checkP();
-  };
   // console.log(keyLength)
 
 //randomized characters will be placed in empty array
@@ -68,40 +67,57 @@ var randomSC;
 var randomNS;
 
 //random variable wo;; get pushed up to the array
-if(randomUCL) { 
+if(randomUCL) {
+  start ++;
   uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
   randomC.push(randomUCL);
   password.push(...uppercaseLetters);
 }
 
 if(randomLCL) {
+  start ++;
   lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
   randomC.push(randomLCL);
   password.push(...lowercaseLetters);
 }
 
 if(randomSC) {
+  start ++;
   specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
   randomC.push(randomSC);
   password.push(...randomSC);
 }
 
 if(randomNS) {
+  start ++;
   numericSigns[Math.floor(Math.random() * numericSigns.length)];
   randomC.push(randomNS);
   password.push(...numericSigns);
 }
+// Alert when no choices were made for password criteria
+if (!include(hasUCL) && !include(hasLCL) && !includes(hasNS) && !includes(hasSC));{
+  alert ("Choices need to be made for me to generate a password...");
+  return;
+};
 
-//   return String.charAt (Math.floor(Math.random() * specialCharacters.length);
-// 
+//formula for randomizing the array 
+for(var i = 0; i < passwordLength - start; i++) {
+  //random password generated based on length
+  var random = password[Math.floor(Math.random() * password.length)];
+  //array will push characters that meet criteria up to random
+  randomC.push(random);
+  //array
+  var joinPassword =randomC.join("");
+};
 
-var password
+return joinPassword;
+
 // Write password to the #password input
 function writePassword() {
 var password = generatePassword();
 var passwordText = document.querySelector("#password");
 passwordText.value = password;
-}
+};
 
 
 
