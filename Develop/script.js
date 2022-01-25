@@ -2,8 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 // prompt for password; needs x - length - between 8-128, include x - lowercase , x- uppercase, x - numeric, and/or x - special characters. 
-
-
 var lowercaseLetters = ["a", "b","c", "d", "e", "f", "g", "h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numericSigns = ["0","1","2","3","4","5","6","7","8","9"];
@@ -55,6 +53,7 @@ function generatePassword() {
     checkP();
   // console.log(keyLength)
 
+  
 //randomized characters will be placed in empty array
 var randomC = [];
 //count starts at 0
@@ -94,34 +93,32 @@ if(randomNS) {
   randomC.push(randomNS);
   password.push(...numericSigns);
 }
+
 // Alert when no choices were made for password criteria
-if (!include(hasUCL) && !include(hasLCL) && !includes(hasNS) && !includes(hasSC));{
-  alert ("Choices need to be made for me to generate a password...");
-  return;
-};
+// if (!include(hasUCL) && !include(hasLCL) && !includes(hasNS) && !includes(hasSC));{
+//   alert ("Choices need to be made for me to generate a password...");
+// };
 
 //formula for randomizing the array 
-for(var i = 0; i < passwordLength - start; i++) {
+for(var i = 0; i < passwordLength; i++) {
   //random password generated based on length
-  var random = password[Math.floor(Math.random() * password.length)];
+  var randomLength = password[Math.floor(Math.random() * password.length)]; 
   //array will push characters that meet criteria up to random
   randomC.push(random);
-  //array
-  var joinPassword =randomC.join("");
-};
+}
 
-return joinPassword;
+  // return randomC.join('');
+
+
+
 
 // Write password to the #password input
 function writePassword() {
 var password = generatePassword();
-var passwordText = document.querySelector("#password");
-passwordText.value = password;
-};
+var passwordText = document.querySelector("#password"); passwordText.value = password; }; 
 
+// Add event listener to generate button 
+generateBtn.addEventListener("click", writePassword); 
+//  console.log(writePassword); 
 
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-//  console.log(writePassword);
-
+//NOTES - LINE 102 uncaught reference error for passwordlength is not defined // prompt not generating correct thing
