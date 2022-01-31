@@ -121,4 +121,5 @@ var passwordText = document.querySelector("#password"); passwordText.value = pas
 generateBtn.addEventListener("click", writePassword); 
 //  console.log(writePassword); 
 
-//NOTES - LINE 102 uncaught reference error for passwordlength is not defined // prompt not generating correct thing
+//NOTES - LINE 102 uncaught reference error for passwordlength is not defined 
+// prompt not generating correctly
