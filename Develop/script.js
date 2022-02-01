@@ -47,15 +47,15 @@ function generatePassword() {
   }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters.includes(passwordLength) || specialCharacters.includes(passwordLength)) 
     alert("You need to enter a number...");
     return;
-
+    
     //checks that response works for numbers chosen 
   } 
     checkP();
-  // console.log(keyLength)
+  console.log(keyLength)
 
   
 //randomized characters will be placed in empty array
-var randomC = [];
+var randomPassword = [];
 //count starts at 0
 var start = 0;
 
@@ -65,32 +65,33 @@ var randomLCL;
 var randomSC;
 var randomNS;
 
-//random variable wo;; get pushed up to the array
-if(randomUCL) {
+//If one character is selected then at least one character will be in the password
+if(hasUCL) {
   start ++;
-  uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
-  randomC.push(randomUCL);
+  randomUCL = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
+  randomPassword.push(randomUCL);
+  // pushes the character type into the password array
   password.push(...uppercaseLetters);
 }
 
-if(randomLCL) {
+if(hasLCL) {
   start ++;
-  lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
-  randomC.push(randomLCL);
+  randomLCL = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+  randomPassword.push(randomLCL);
   password.push(...lowercaseLetters);
 }
 
-if(randomSC) {
+if(hasSC) {
   start ++;
-  specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-  randomC.push(randomSC);
+  randomSC = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+  randomPassword.push(randomSC);
   password.push(...randomSC);
 }
 
-if(randomNS) {
+if(hasNS) {
   start ++;
-  numericSigns[Math.floor(Math.random() * numericSigns.length)];
-  randomC.push(randomNS);
+  randomNS = numericSigns[Math.floor(Math.random() * numericSigns.length)];
+  randomPassword.push(randomNS);
   password.push(...numericSigns);
 }
 
