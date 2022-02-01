@@ -51,7 +51,7 @@ function generatePassword() {
   // if any else conditions are triggered then checkP is prompted to confirm the response again
 }else {
  checkP();
-};
+}};
   
   // console.log(keyLength)
 
@@ -98,19 +98,19 @@ if(hasNS) {
 }
 
 // Alert when no choices were made for password criteria
-// if (!include(hasUCL) && !include(hasLCL) && !includes(hasNS) && !includes(hasSC));{
-//   alert ("Choices need to be made for me to generate a password...");
-// };
+if (!hasUCL && !hasLCL && !hasNS && !hasSC);{
+  alert ("Choices need to be made for me to generate a password...");
+};
 
 //formula for randomizing the array 
-for(var i = 0; i < passwordLength; i++) {
+for(var i = 0; i < randomPassword.length; i++) {
   //random password generated based on length
   var randomLength = password[Math.floor(Math.random() * password.length)]; 
   //array will push characters that meet criteria up to random
-  randomC.push(random);
+  var randomPasswordNoSpace = randomPassword.join("");
 }
 
-  // return randomC.join('');
+  // return randomPasswordNoSpace;
 
 
 
@@ -118,11 +118,9 @@ for(var i = 0; i < passwordLength; i++) {
 // Write password to the #password input
 function writePassword() {
 var password = generatePassword();
-var passwordText = document.querySelector("#password"); passwordText.value = password; }; 
+var passwordText = document.querySelector("#password"); passwordText.value = password; 
+}; 
 
 // Add event listener to generate button 
 generateBtn.addEventListener("click", writePassword); 
 //  console.log(writePassword); 
-
-//NOTES - LINE 102 uncaught reference error for passwordlength is not defined 
-// prompt not generating correctly
