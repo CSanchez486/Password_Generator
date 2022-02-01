@@ -41,17 +41,19 @@ function generatePassword() {
     //prompt if anything 
   }else if (passwordLength < 8 || passwordLength > 128) { 
     alert ("Let's try this again - pick a number between 8 & 128, I believe in you");
-    return;
+    return; 
 
     //supporting prompts for the next series of questions
-  }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters.includes(passwordLength) || specialCharacters.includes(passwordLength)) 
+  }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters.includes(passwordLength) || specialCharacters.includes(passwordLength)) {
     alert("You need to enter a number...");
     return;
-    
-    //checks that response works for numbers chosen 
-  } 
-    checkP();
-  console.log(keyLength)
+
+  // if any else conditions are triggered then checkP is prompted to confirm the response again
+}else {
+ checkP();
+};
+  
+  // console.log(keyLength)
 
   
 //randomized characters will be placed in empty array
