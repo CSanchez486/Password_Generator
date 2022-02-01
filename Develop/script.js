@@ -15,10 +15,10 @@ var hasNS;
 
 //Checks that password has correct character types 
 function checkP () {
-  hasUCL = window.confirm("UCL!");
-  hasLCL = window.confirm("LCL");
-  hasSC = window.confirm("SC!");
-  hasNS = window.confirm("NS!");
+  hasUCL = window.confirm("Click to OK to confirm that uppercase letters are required.");
+  hasLCL = window.confirm("Click to OK to confirm that lowercase letters are required.");
+  hasSC = window.confirm("Click to OK to confirm that special characters are required.");
+  hasNS = window.confirm("Click to OK to confirm that numeric symbols are required.");
 }
 
 
@@ -28,8 +28,13 @@ function generatePassword() {
   var password = [];
   var passwordLength = prompt("How many characters does your password need to be? The length of the password can be between 8-128 characters");
 
+    //prompt if anything 
+  if (passwordLength < 8 || passwordLength > 128) { 
+    alert ("Let's try this again - pick a number between 8 & 128, I believe in you");
+    return; 
+
   //prompt if cancel is clicked - exits the generator
-  if (passwordLength === null)  { 
+  }else if (passwordLength === null)  { 
     alert("You need at least 8 characters to have a secure password. Let's try this again...");
     return;
   
@@ -38,10 +43,7 @@ function generatePassword() {
     alert ("Forget to enter a number? Need to know that before I can generate a password." );
     return;
     
-    //prompt if anything 
-  }else if (passwordLength < 8 || passwordLength > 128) { 
-    alert ("Let's try this again - pick a number between 8 & 128, I believe in you");
-    return; 
+  
 
     //supporting prompts for the next series of questions
   }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters.includes(passwordLength) || specialCharacters.includes(passwordLength)) {
@@ -99,7 +101,7 @@ if(hasNS) {
 
 // Alert when no choices were made for password criteria
 if (!hasUCL && !hasLCL && !hasNS && !hasSC);{
-  alert ("Choices need to be made for me to generate a password...");
+  alert ("Choices need to be made for me to generate a password - click on generate password to begin...");
 };
 
 //formula for randomizing the array 
