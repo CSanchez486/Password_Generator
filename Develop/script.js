@@ -15,10 +15,10 @@ var hasNS;
 
 //Checks that password has correct character types 
 function checkP () {
-  hasUCL = window.confirm("Cancel means No, OK means OK - click away!");
-  hasLCL = window.confirm("Cancel means No, OK means OK - click away!");
-  hasSC = window.confirm("Cancel means No, OK means OK - click away!");
-  hasNS = window.confirm("Cancel means No, OK means OK - click away!");
+  hasUCL = window.confirm("UCL!");
+  hasLCL = window.confirm("LCL");
+  hasSC = window.confirm("SC!");
+  hasNS = window.confirm("NS!");
 }
 
 
@@ -44,7 +44,7 @@ function generatePassword() {
     return;
 
     //supporting prompts for the next series of questions
-  }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters || specialCharacters) 
+  }else if (lowercaseLetters.includes(passwordLength) || uppercaseLetters.includes(passwordLength) || specialCharacters.includes(passwordLength)) 
     alert("You need to enter a number...");
     return;
 
